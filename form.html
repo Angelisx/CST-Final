@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness Church</title>
+    <link rel="stylesheet" href="form.css">
+    <script>
+        function doClear() {
+            document.MembershipForm.customer.value = "";
+            document.MembershipForm.address.value = "";
+            document.MembershipForm.city.value = "";
+            document.MembershipForm.state.value = "";
+            document.MembershipForm.zip.value = "";
+            document.MembershipForm.phone.value = "";
+            document.MembershipForm.prices[0].checked = false;
+            document.MembershipForm.prices[1].checked = false;
+            document.MembershipForm.prices[2].checked = false;
+            return;
+        }
+
+
+        function doSubmit() {
+            if (validateText() == false) {
+                alert("Required data missing in Step 1");
+                return;
+            }
+            if (validateRadio() == false) {
+                alert("Required data missing in Step 2");
+                return;
+            }
+            
+            alert("Your membership is being processed. Thank you for becoming a member.");
+            return;
+            
+        }
+
+
+        function validateText() {
+            var customer = document.MembershipForm.customer.
+                value;
+            if (customer.length == 0) return false;
+            var address = document.MembershipForm.address.
+                value;
+            if (address.length == 0) return false;
+            var city = document.MembershipForm.city.value;
+            if (city.length == 0) return false;
+            var phone = document.MembershipForm.phone.value;
+            if (phone.length == 0) return false;
+            return true;
+        }
+
+        function validateRadio() {
+            if (document.MembershipForm.prices[0].checked) return
+            true;
+            if (document.MembershipForm.prices[1].checked) return
+            true;
+            if (document.MembershipForm.prices[2].checked) return
+            true;
+            return false;
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <nav  class ="navMenu">
+        <a href="index.html">Home</a> 
+        <a href="form.html">Sign Up</a> 
+        <a href="intro.html">About</a> 
+    </nav>
+    <form id="form"name="MembershipForm">
+
+        <h4>Step 1: Enter your name, address, and phone number</h4>
+        <font face="Courier New">
+            Name: &nbsp;&nbsp;&nbsp;<input name="customer" size="50" type="text"><br>
+            Address: <input name="address" size="50" type="text"><br>
+            City: &nbsp;&nbsp;&nbsp;<input name="city" size="15" type="text">
+            State: <input name="state" size="2" type="TEXT">
+            Zip: <input name="zip" size="5" type="text"><br>
+            Phone: &nbsp;&nbsp;<input name="phone" size="50" type="text"><br>
+        </font>
+
+        <h4>Step 2: Select the membership you want:
+        </h4>
+        <font face="Courier New">
+            <input name="prices" type="radio">20$
+            <input name="prices" type="radio">40$
+            <input name="prices" type="radio">100$<br>
+        </font>
+
+        <input type="button" value="Submit Info" onClick="doSubmit()">
+        <input type="button" value="Clear Entries" onClick="doClear()">
+        <!-- <button class="button">Book Now</button> -->
+    </form>
+
+
+</body>
+</html>
+
+
