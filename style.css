@@ -28,6 +28,11 @@ body {
   
 }
 
+a{
+    color: bisque;
+    text-decoration: none;
+
+}
 
 .navMenu {
     position:absolute;
